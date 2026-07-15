@@ -3,24 +3,24 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-		<PackageVersion Include="SSH.NET" Version="2025.1.0" />
+    <PackageVersion Include="SSH.NET" Version="2025.1.0" />
     <!-- Analyzers -->
-    <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.301" PrivateAssets="all" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.302" PrivateAssets="all" />
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.15.0" PrivateAssets="all" />
     <PackageVersion Include="Roslynator.CodeAnalysis.Analyzers" Version="4.15.0" PrivateAssets="all" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.15.0" PrivateAssets="all" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" PrivateAssets="all" />
-    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.104" PrivateAssets="all" />
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" PrivateAssets="all" />
+    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.123" PrivateAssets="all" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.29.0.143774" PrivateAssets="all" />
     <!-- Tests -->
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
     <PackageVersion Include="xunit.analyzers" Version="1.27.0" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
-    <PackageVersion Include="NSubstitute" Version="5.3.0" />
+    <PackageVersion Include="coverlet.collector" Version="10.0.1" />
+    <PackageVersion Include="coverlet.msbuild" Version="10.0.1" />
+    <PackageVersion Include="NSubstitute" Version="6.0.0" />
     <PackageVersion Include="FluentAssertions" Version="[7.2.0]" />
   </ItemGroup>
 </Project>
