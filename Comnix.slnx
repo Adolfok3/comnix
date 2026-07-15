@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/src/">
+    <File Path="src/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/Solution Items/tests/">
+    <File Path="tests/Directory.Build.props" />
+  </Folder>
+  <Project Path="src/Comnix.AppHost/Comnix.AppHost.csproj" Id="3c6e8d15-a881-43c1-93b1-7a8e27014ca9" />
+  <Project Path="src/Comnix/Comnix.csproj" Id="731413b4-b30d-4f99-88de-6419a7a0c82d" />
+  <Project Path="tests/Comnix.Tests/Comnix.Tests.csproj" Id="c5796aa5-77b4-4796-8d46-eccb7f8d2473" />
+</Solution>

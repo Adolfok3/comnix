@@ -184,6 +184,12 @@ dotnet_diagnostic.S2326.severity = none
 dotnet_diagnostic.RCS1214.severity = warning
 dotnet_diagnostic.MA0015.severity = none
 dotnet_diagnostic.MA0097.severity = none
+dotnet_diagnostic.IDE0008.severity = none
+dotnet_diagnostic.SA0001.severity = none
+dotnet_diagnostic.IDE0005.severity = none
+dotnet_diagnostic.MA0048.severity = none
+dotnet_diagnostic.IDE0011.severity = none
+dotnet_diagnostic.SA1118.severity = none
 
 [**/Data/Migrations/*.cs]
 generated_code = true
