@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Comnix": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api",
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}

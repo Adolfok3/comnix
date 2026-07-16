@@ -16,20 +16,20 @@ RUN dotnet restore src/Comnix/Comnix.csproj -r linux-musl-x64
 
 COPY . .
 
-RUN dotnet publish \
-    src/Comnix/Comnix.csproj \
+
+RUN dotnet publish src/Comnix/Comnix.csproj \
+    -p:DebugType=None \
     -c Release \
     -r linux-musl-x64 \
-    --no-restore \
-    -o /app
+    -o /app \
+    --self-contained true
 
-FROM scratch
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-alpine
 
-COPY --from=build /lib/ld-musl-x86_64.so.1 /lib/
 COPY --from=build /app/ /
 
-EXPOSE 8080
+EXPOSE 5000
 
-ENV ASPNETCORE_URLS=http://+:8080
+ENV ASPNETCORE_HTTP_PORTS=5000
 
 ENTRYPOINT ["/Comnix"]
