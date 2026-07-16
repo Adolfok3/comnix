@@ -15,7 +15,7 @@ internal sealed class SshExecutor(IOptionsMonitor<ComnixOptions> options)
             return (false, $"Command not found for route: {route}");
 
         return !options.CurrentValue.Ssh.TryGetValue(command.Connection ?? DefaultConnection, out var ssh)
-            ? ((bool Success, string Result))(false, $"SSH configuration is missing for connection: {command.Connection}")
+            ? ((bool Success, string Result))(false, $"SSH configuration is missing for connection: {command.Connection ?? DefaultConnection}")
             : await ExecuteCommandAsync(command, ssh, cancellationToken);
     }
 

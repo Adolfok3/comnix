@@ -28,6 +28,13 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-alpine
 
 COPY --from=build /app/ /
 
+RUN addgroup -g 1000 -S comnix \
+    && adduser -u 1000 -S -G comnix comnix \
+    && mkdir -p /app/config \
+    && chown -R comnix:comnix /app/config
+
+USER comnix
+
 EXPOSE 5000
 
 ENV ASPNETCORE_HTTP_PORTS=5000
