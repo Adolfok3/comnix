@@ -6,7 +6,8 @@ public sealed class ResponseHtmlAppFixture : ComnixConfigAppFixture
         """
         {
           "commands": [
-            { "route": "html-test", "command": "echo '<hello & world>'" }
+            { "route": "html-test", "command": "echo '<hello & world>'" },
+            { "route": "special-chars-test", "command": "echo 'He said \"hi\" at /var/log/app.log'" }
           ]
         }
         """;
