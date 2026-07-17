@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.png" alt="comnix" width="120" height="120" />
+  <img src="https://raw.githubusercontent.com/Adolfok3/comnix/main/assets/icon.png" alt="comnix" width="120" height="120" />
 </p>
 
 <h1 align="center">comnix</h1>
@@ -11,11 +11,11 @@
   <a href="https://github.com/Adolfok3/comnix/releases"><img src="https://img.shields.io/github/v/release/Adolfok3/comnix?label=release&logo=github&sort=semver" alt="Release" /></a>
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/image-size/adolfok3/comnix/latest?label=image%20size&logo=docker&color=informational" alt="Docker Image Size" /></a>
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/pulls/adolfok3/comnix?logo=docker" alt="Docker Pulls" /></a>
-  <a href="tests/Comnix.Tests"><img src="https://img.shields.io/badge/tests-passing-brightgreen?logo=xunit" alt="Tests" /></a>
+  <a href="https://github.com/Adolfok3/comnix/tree/main/tests/Comnix.Tests"><img src="https://img.shields.io/badge/tests-passing-brightgreen?logo=xunit" alt="Tests" /></a>
   <a href="https://dotnet.microsoft.com"><img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET" /></a>
-  <a href="src/Comnix/Comnix.csproj"><img src="https://img.shields.io/badge/native-AOT-blue" alt="Native AOT" /></a>
-  <a href="src/Comnix/Dockerfile"><img src="https://img.shields.io/badge/platform-linux--musl--x64-orange?logo=alpinelinux&logoColor=white" alt="Platform" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/Adolfok3/comnix" alt="License" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Comnix.csproj"><img src="https://img.shields.io/badge/native-AOT-blue" alt="Native AOT" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Dockerfile"><img src="https://img.shields.io/badge/platform-linux--musl--x64-orange?logo=alpinelinux&logoColor=white" alt="Platform" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Adolfok3/comnix" alt="License" /></a>
 </p>
 
 ## Why comnix
@@ -220,7 +220,7 @@ curl http://homelab.local:5000/api/restart-nginx
 
 ## Security
 
-comnix **does not implement its own authentication or API key validation** — this is a deliberate choice, not an oversight (see [ADR 0001](docs/adr/0001-no-authentication-layer.md) for the full reasoning). Anyone who can reach the port can trigger any route in `commands.json`, so the network boundary *is* the security model: run it only behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front), and never expose the port directly to the internet.
+comnix **does not implement its own authentication or API key validation** — this is a deliberate choice, not an oversight (see [ADR 0001](https://github.com/Adolfok3/comnix/blob/main/docs/adr/0001-no-authentication-layer.md) for the full reasoning). Anyone who can reach the port can trigger any route in `commands.json`, so the network boundary *is* the security model: run it only behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front), and never expose the port directly to the internet.
 
 ## Building the image locally
 
@@ -230,4 +230,4 @@ docker build -f src/Comnix/Dockerfile -t comnix .
 
 ## License
 
-Distributed under the [MIT](LICENSE) license.
+Distributed under the [MIT](https://github.com/Adolfok3/comnix/blob/main/LICENSE) license.

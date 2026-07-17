@@ -55,3 +55,12 @@ jobs:
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/comnix:${{ env.RELEASE_VERSION }}
           ${{ secrets.DOCKERHUB_USERNAME }}/comnix:latest
+
+    - name: Update Docker Hub description
+      uses: peter-evans/dockerhub-description@v4
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        repository: ${{ secrets.DOCKERHUB_USERNAME }}/comnix
+        readme-filepath: ./README.md
+        short-description: "Run remote SSH commands with a plain HTTP GET — straight from your homelab, no bloat."
