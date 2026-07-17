@@ -31,6 +31,7 @@ public sealed class ComnixResponseHtmlTests(ResponseHtmlAppFixture fixture) : IC
     {
         // Arrange
         await File.WriteAllTextAsync(_responseHtmlPath, ResponseHtmlTemplate);
+        ComnixConfigAppFixture.MakeAccessibleToContainer(_responseHtmlPath);
 
         // Act
         var response = await _fixture.HttpClient.GetAsync("/api/html-test");

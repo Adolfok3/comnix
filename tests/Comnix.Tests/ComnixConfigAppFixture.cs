@@ -28,10 +28,31 @@ public abstract class ComnixConfigAppFixture : IAsyncLifetime
 
     protected abstract string CommandsJson { get; }
 
+    // Comnix runs as a non-root UID that won't match this host path's owner, and CreateTempSubdirectory
+    // defaults to 0700 on Unix, so the bind-mounted path must be relaxed or the container can't read it.
+    public static void MakeAccessibleToContainer(string path)
+    {
+        if (OperatingSystem.IsWindows())
+            return;
+
+        File.SetUnixFileMode(
+            path,
+            UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute |
+            UnixFileMode.GroupRead | UnixFileMode.GroupWrite | UnixFileMode.GroupExecute |
+            UnixFileMode.OtherRead | UnixFileMode.OtherWrite | UnixFileMode.OtherExecute);
+    }
+
     public async Task InitializeAsync()
     {
-        await File.WriteAllTextAsync(Path.Combine(ConfigDirectory, "commands.json"), CommandsJson);
-        await File.WriteAllTextAsync(Path.Combine(ConfigDirectory, "ssh.json"), SshConfigJson);
+        MakeAccessibleToContainer(ConfigDirectory);
+
+        var commandsPath = Path.Combine(ConfigDirectory, "commands.json");
+        var sshPath = Path.Combine(ConfigDirectory, "ssh.json");
+
+        await File.WriteAllTextAsync(commandsPath, CommandsJson);
+        await File.WriteAllTextAsync(sshPath, SshConfigJson);
+        MakeAccessibleToContainer(commandsPath);
+        MakeAccessibleToContainer(sshPath);
 
         var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Comnix_AppHost>(
             [$"ConfigVolumePath={ConfigDirectory}"]);
