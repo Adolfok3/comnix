@@ -14,6 +14,7 @@ builder.AddDockerfile(name: "comnix", contextPath: "../../", dockerfilePath: "sr
     .WithHttpEndpoint(port: 5000, targetPort: 5000)
     .WithBindMount(configVolumePath, "/app/config")
     .WithImage("comnix:latest")
+    .WithHttpHealthCheck("/api/__healthcheck__")
     .WaitFor(sshServer);
 
 await builder.Build().RunAsync();
