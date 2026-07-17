@@ -98,6 +98,9 @@ services:
 
 All the files below live in the directory mounted at `/app/config`.
 
+> [!NOTE]
+> These files are watched in real time — changes may take a few seconds to take effect, no container restart needed.
+
 ### `ssh.json`
 
 Defines one or more named **SSH connections**, referenced by the commands in `commands.json`.
