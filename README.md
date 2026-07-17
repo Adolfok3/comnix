@@ -220,7 +220,7 @@ curl http://homelab.local:5000/api/restart-nginx
 
 ## Security
 
-comnix **does not implement its own authentication** — it assumes it's already running behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front). Don't expose the port directly to the internet without an additional layer of protection.
+comnix **does not implement its own authentication or API key validation** — this is a deliberate choice, not an oversight (see [ADR 0001](docs/adr/0001-no-authentication-layer.md) for the full reasoning). Anyone who can reach the port can trigger any route in `commands.json`, so the network boundary *is* the security model: run it only behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front), and never expose the port directly to the internet.
 
 ## Building the image locally
 
