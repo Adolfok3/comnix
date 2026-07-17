@@ -1,0 +1,10 @@
+{
+  "ssh": {
+		"default": {
+			"host": "ssh-server",
+			"user": "test",
+			"port": 2222,
+			"password": "pass123"
+		}
+	}
+}
