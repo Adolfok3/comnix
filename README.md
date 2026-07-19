@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon.png" alt="comnix" width="120" height="120" />
+  <img src="https://raw.githubusercontent.com/Adolfok3/comnix/main/assets/icon.png" alt="comnix" width="120" height="120" />
 </p>
 
 <h1 align="center">comnix</h1>
@@ -11,11 +11,11 @@
   <a href="https://github.com/Adolfok3/comnix/releases"><img src="https://img.shields.io/github/v/release/Adolfok3/comnix?label=release&logo=github&sort=semver" alt="Release" /></a>
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/image-size/adolfok3/comnix/latest?label=image%20size&logo=docker&color=informational" alt="Docker Image Size" /></a>
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/pulls/adolfok3/comnix?logo=docker" alt="Docker Pulls" /></a>
-  <a href="tests/Comnix.Tests"><img src="https://img.shields.io/badge/tests-passing-brightgreen?logo=xunit" alt="Tests" /></a>
+  <a href="https://github.com/Adolfok3/comnix/tree/main/tests/Comnix.Tests"><img src="https://img.shields.io/badge/tests-passing-brightgreen?logo=xunit" alt="Tests" /></a>
   <a href="https://dotnet.microsoft.com"><img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET" /></a>
-  <a href="src/Comnix/Comnix.csproj"><img src="https://img.shields.io/badge/native-AOT-blue" alt="Native AOT" /></a>
-  <a href="src/Comnix/Dockerfile"><img src="https://img.shields.io/badge/platform-linux--musl--x64-orange?logo=alpinelinux&logoColor=white" alt="Platform" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/Adolfok3/comnix" alt="License" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Comnix.csproj"><img src="https://img.shields.io/badge/native-AOT-blue" alt="Native AOT" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Dockerfile"><img src="https://img.shields.io/badge/platform-linux--musl--x64-orange?logo=alpinelinux&logoColor=white" alt="Platform" /></a>
+  <a href="https://github.com/Adolfok3/comnix/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Adolfok3/comnix" alt="License" /></a>
 </p>
 
 ## Why comnix
@@ -24,14 +24,14 @@
 
 The whole point is to stay out of the way:
 
-| | |
-|---|---|
-| **Multiple SSH profiles** | Define as many named servers as you want in `ssh.json` (different hosts, users, ports, keys). Each route in `commands.json` picks which one it runs against. |
-| **Route → command mapping** | Every entry in `commands.json` maps a URL segment to a shell command. No code, no scripting language — just JSON. |
-| **~32 MB image** | Published with .NET 10 Native AOT, self-contained, on top of `runtime-deps:alpine`. No SDK, no JIT, no dead weight. |
-| **Zero external dependencies** | No database, queue, or sidecar service needed. Just the container and two JSON files. |
-| **Configuration via volume** | Profiles and commands live in JSON files mounted as a volume — edit them and the change applies immediately, no image rebuild. |
-| **Customizable response** | Optionally returns HTML (with CSS/JS) instead of JSON — great for bookmarklets, home-screen shortcuts, and automations. |
+|                                |                                                                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Multiple SSH profiles**      | Define as many named servers as you want in `ssh.json` (different hosts, users, ports, keys). Each route in `commands.json` picks which one it runs against. |
+| **Route → command mapping**    | Every entry in `commands.json` maps a URL segment to a shell command. No code, no scripting language — just JSON.                                            |
+| **~9 MB image**                | Published with .NET 10 Native AOT, self-contained, on top of `runtime-deps:alpine`. No SDK, no JIT, no dead weight.                                          |
+| **Zero external dependencies** | No database, queue, or sidecar service needed. Just the container and two JSON files.                                                                        |
+| **Configuration via volume**   | Profiles and commands live in JSON files mounted as a volume — edit them and the change applies immediately, no image rebuild.                               |
+| **Customizable response**      | Optionally returns HTML (with CSS/JS) instead of JSON — great for bookmarklets, home-screen shortcuts, and automations.                                      |
 
 Ideal for triggering everyday homelab tasks — restarting a service, running a backup script, sending a Wake-on-LAN, checking disk usage — from a phone shortcut, a browser bookmarklet, a Home Assistant button, or anything that can make a `GET` request.
 
@@ -125,14 +125,14 @@ Defines one or more named **SSH connections**, referenced by the commands in `co
 }
 ```
 
-| Field | Required | Default | Description |
-|---|---|---|---|
-| `host` | Yes | — | Address of the SSH server. |
-| `user` | Yes | — | Username for authentication. |
-| `port` | No | `22` | SSH service port. |
-| `password` | No* | — | Password for the user. |
-| `keyPath` | No* | — | Path (inside the container) to a private key file. Takes priority over `password` if set. |
-| `commandTimeout` | No | `120` | Timeout in seconds for command execution. |
+| Field            | Required | Default | Description                                                                               |
+| ---------------- | -------- | ------- | ----------------------------------------------------------------------------------------- |
+| `host`           | Yes      | —       | Address of the SSH server.                                                                |
+| `user`           | Yes      | —       | Username for authentication.                                                              |
+| `port`           | No       | `22`    | SSH service port.                                                                         |
+| `password`       | No\*     | —       | Password for the user.                                                                    |
+| `keyPath`        | No\*     | —       | Path (inside the container) to a private key file. Takes priority over `password` if set. |
+| `commandTimeout` | No       | `120`   | Timeout in seconds for command execution.                                                 |
 
 \* provide either `password` **or** `keyPath` — if using a key, mount the key file via volume as well (e.g. `./keys:/app/config/keys`).
 
@@ -147,16 +147,20 @@ Defines the available **routes** and the command executed for each one.
   "commands": [
     { "route": "restart-nginx", "command": "sudo systemctl restart nginx" },
     { "route": "disk-usage", "command": "df -h" },
-    { "route": "wake-nas", "command": "wakeonlan AA:BB:CC:DD:EE:FF", "connection": "nas" }
+    {
+      "route": "wake-nas",
+      "command": "wakeonlan AA:BB:CC:DD:EE:FF",
+      "connection": "nas"
+    }
   ]
 }
 ```
 
-| Field | Required | Default | Description |
-|---|---|---|---|
-| `route` | Yes | — | Segment after `/api/`. Requests to `GET /api/restart-nginx` execute this entry's command. Matching is case-insensitive. |
-| `command` | Yes | — | Shell command executed on the remote server. |
-| `connection` | No | `default` | Name of the connection (key from `ssh.json`) used for this route. |
+| Field        | Required | Default   | Description                                                                                                             |
+| ------------ | -------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `route`      | Yes      | —         | Segment after `/api/`. Requests to `GET /api/restart-nginx` execute this entry's command. Matching is case-insensitive. |
+| `command`    | Yes      | —         | Shell command executed on the remote server.                                                                            |
+| `connection` | No       | `default` | Name of the connection (key from `ssh.json`) used for this route.                                                       |
 
 ### `response.html` (optional)
 
@@ -168,10 +172,10 @@ By default, every call returns a plain JSON payload:
 
 If you drop a `response.html` file at `/app/config/response.html`, comnix returns **that HTML** instead of JSON — with two placeholders substituted automatically:
 
-| Placeholder | Replaced with |
-|---|---|
-| `{{success}}` | `true` or `false` |
-| `{{result}}` | Command output (HTML-encoded) |
+| Placeholder   | Replaced with                 |
+| ------------- | ----------------------------- |
+| `{{success}}` | `true` or `false`             |
+| `{{result}}`  | Command output (HTML-encoded) |
 
 This makes room for a response with your own look and feel — CSS, animations, even JavaScript behavior. A classic homelab use case: use comnix as the target of a phone home-screen shortcut and auto-close the tab right after execution, so no result screen is left hanging around:
 
@@ -191,7 +195,9 @@ This makes room for a response with your own look and feel — CSS, animations, 
         height: 100vh;
         margin: 0;
       }
-      .icon { font-size: 3rem; }
+      .icon {
+        font-size: 3rem;
+      }
     </style>
   </head>
   <body>
@@ -220,7 +226,7 @@ curl http://homelab.local:5000/api/restart-nginx
 
 ## Security
 
-comnix **does not implement its own authentication or API key validation** — this is a deliberate choice, not an oversight (see [ADR 0001](docs/adr/0001-no-authentication-layer.md) for the full reasoning). Anyone who can reach the port can trigger any route in `commands.json`, so the network boundary *is* the security model: run it only behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front), and never expose the port directly to the internet.
+comnix **does not implement its own authentication or API key validation** — this is a deliberate choice, not an oversight (see [ADR 0001](https://github.com/Adolfok3/comnix/blob/main/docs/adr/0001-no-authentication-layer.md) for the full reasoning). Anyone who can reach the port can trigger any route in `commands.json`, so the network boundary _is_ the security model: run it only behind a trusted network (your LAN, a VPN like Tailscale/WireGuard, or a reverse proxy with authentication in front), and never expose the port directly to the internet.
 
 ## Building the image locally
 
@@ -230,4 +236,4 @@ docker build -f src/Comnix/Dockerfile -t comnix .
 
 ## License
 
-Distributed under the [MIT](LICENSE) license.
+Distributed under the [MIT](https://github.com/Adolfok3/comnix/blob/main/LICENSE) license.

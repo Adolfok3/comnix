@@ -6,7 +6,6 @@
     <PackageVersion Include="SSH.NET" Version="2025.1.0" />
     <!-- Analyzers -->
     <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.302" PrivateAssets="all" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.15.0" PrivateAssets="all" />
     <PackageVersion Include="Roslynator.CodeAnalysis.Analyzers" Version="4.15.0" PrivateAssets="all" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.15.0" PrivateAssets="all" />
