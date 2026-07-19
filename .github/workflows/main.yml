@@ -25,13 +25,3 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build
-
-    - name: Update Docker Hub description
-      if: github.event_name == 'push'
-      uses: peter-evans/dockerhub-description@v4
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: ${{ secrets.DOCKERHUB_USERNAME }}/comnix
-        readme-filepath: ./docs/dockerhub-readme.md
-        short-description: "Run remote SSH commands with a plain HTTP GET — straight from your homelab, no bloat."
