@@ -33,5 +33,5 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: ${{ secrets.DOCKERHUB_USERNAME }}/comnix
-        readme-filepath: ./README.md
+        readme-filepath: ./docs/dockerhub-readme.md
         short-description: "Run remote SSH commands with a plain HTTP GET — straight from your homelab, no bloat."
