@@ -47,6 +47,7 @@ Ideal for triggering everyday homelab tasks — restarting a service, running a 
 - [Calling the API](#calling-the-api)
 - [Security](#security)
 - [Building the image locally](#building-the-image-locally)
+- [Changelog](#changelog)
 - [License](#license)
 
 ## How it works
@@ -233,6 +234,10 @@ comnix **does not implement its own authentication or API key validation** — t
 ```bash
 docker build -f src/Comnix/Dockerfile -t comnix .
 ```
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for the release history.
 
 ## License
 
