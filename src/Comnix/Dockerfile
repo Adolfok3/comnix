@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:11.0-alpine AS build
 
 RUN apk add --no-cache \
     clang \
@@ -24,7 +24,7 @@ RUN dotnet publish src/Comnix/Comnix.csproj \
     -o /app \
     --self-contained true
 
-FROM mcr.microsoft.com/dotnet/runtime-deps:10.0-alpine
+FROM mcr.microsoft.com/dotnet/runtime-deps:11.0-alpine
 
 COPY --from=build /app/ /
 
