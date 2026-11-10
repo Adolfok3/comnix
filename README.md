@@ -12,7 +12,7 @@
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/image-size/adolfok3/comnix/latest?label=image%20size&logo=docker&color=informational" alt="Docker Image Size" /></a>
   <a href="https://hub.docker.com/r/adolfok3/comnix"><img src="https://img.shields.io/docker/pulls/adolfok3/comnix?logo=docker" alt="Docker Pulls" /></a>
   <a href="https://github.com/Adolfok3/comnix/tree/main/tests/Comnix.Tests"><img src="https://img.shields.io/badge/tests-passing-brightgreen?logo=xunit" alt="Tests" /></a>
-  <a href="https://dotnet.microsoft.com"><img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white" alt=".NET" /></a>
+  <a href="https://dotnet.microsoft.com"><img src="https://img.shields.io/badge/.NET-11-512BD4?logo=dotnet&logoColor=white" alt=".NET" /></a>
   <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Comnix.csproj"><img src="https://img.shields.io/badge/native-AOT-blue" alt="Native AOT" /></a>
   <a href="https://github.com/Adolfok3/comnix/blob/main/src/Comnix/Dockerfile"><img src="https://img.shields.io/badge/platform-linux--musl--x64-orange?logo=alpinelinux&logoColor=white" alt="Platform" /></a>
   <a href="https://github.com/Adolfok3/comnix/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Adolfok3/comnix" alt="License" /></a>
@@ -28,7 +28,7 @@ The whole point is to stay out of the way:
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Multiple SSH profiles**      | Define as many named servers as you want in `ssh.json` (different hosts, users, ports, keys). Each route in `commands.json` picks which one it runs against. |
 | **Route → command mapping**    | Every entry in `commands.json` maps a URL segment to a shell command. No code, no scripting language — just JSON.                                            |
-| **~9 MB image**                | Published with .NET 10 Native AOT, self-contained, on top of `runtime-deps:alpine`. No SDK, no JIT, no dead weight.                                          |
+| **~9 MB image**                | Published with .NET 11 Native AOT, self-contained, on top of `runtime-deps:alpine`. No SDK, no JIT, no dead weight.                                          |
 | **Zero external dependencies** | No database, queue, or sidecar service needed. Just the container and two JSON files.                                                                        |
 | **Configuration via volume**   | Profiles and commands live in JSON files mounted as a volume — edit them and the change applies immediately, no image rebuild.                               |
 | **Customizable response**      | Optionally returns HTML (with CSS/JS) instead of JSON — great for bookmarklets, home-screen shortcuts, and automations.                                      |
